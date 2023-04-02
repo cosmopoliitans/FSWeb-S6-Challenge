@@ -30,7 +30,6 @@ h1 {
 
 .karakter-detay {
   margin-top: 50px;
-  text-align: left;
 }
 
 ul {
@@ -54,7 +53,7 @@ li {
 }
 
 li:hover {
-  background-color: lightgray;
+  background-color: rgb(37, 31, 66);
 }
 
 h2,

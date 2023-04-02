@@ -17,8 +17,7 @@ function Karakter() {
     fetchData();
   }, []);
 
-  const handleClick = (karakter) => {
-    // Eğer seçili karakter zaten açıksa, kapatmak için null olarak ayarlayalım.
+  const handleAccordionClick = (karakter) => {
     setSelectedKarakter(selectedKarakter === karakter ? null : karakter);
   };
 
@@ -29,56 +28,55 @@ function Karakter() {
         <h2>Karakterler</h2>
         <ul>
           {karakterData.map((karakter) => (
-            <li key={karakter.url} onClick={() => handleClick(karakter)}>
-              {karakter.name}
+            <li key={karakter.url}>
+              <button onClick={() => handleAccordionClick(karakter)}>
+                {karakter.name}
+              </button>
+              {selectedKarakter === karakter && (
+                <div>
+                  <ul>
+                    <li>
+                      Gender: <span>{selectedKarakter.gender}</span>
+                    </li>
+                    <li>
+                      Height: <span>{selectedKarakter.height}</span>
+                    </li>
+                    <li>
+                      Mass: <span>{selectedKarakter.mass}</span>
+                    </li>
+                    <li>
+                      Birth Year: <span>{selectedKarakter.birth_year}</span>
+                    </li>
+                    <li>
+                      Eye Color: <span>{selectedKarakter.eye_color}</span>
+                    </li>
+                    <li>
+                      Hair Color: <span>{selectedKarakter.hair_color}</span>
+                    </li>
+                    <li>
+                      Skin Color: <span>{selectedKarakter.skin_color}</span>
+                    </li>
+                  </ul>
+                  <h3>Filmler</h3>
+                  <ul>
+                    {selectedKarakter.films.map((filmUrl) => {
+                      const film = filmsData.find((f) => f.url === filmUrl);
+                      return (
+                        <li key={filmUrl}>
+                          <h4>{film.title}</h4>
+                          <p>Episode: {film.episode_id}</p>
+                          <p>Director: {film.director}</p>
+                          <p>Producer: {film.producer}</p>
+                          <p>Release Date: {film.release_date}</p>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
             </li>
           ))}
         </ul>
-      </div>
-      <div className="karakter-detay">
-        {selectedKarakter && (
-          <>
-            <h2>{selectedKarakter.name}</h2>
-            <ul>
-              <li>
-                Gender: <span>{selectedKarakter.gender}</span>
-              </li>
-              <li>
-                Height: <span>{selectedKarakter.height}</span>
-              </li>
-              <li>
-                Mass: <span>{selectedKarakter.mass}</span>
-              </li>
-              <li>
-                Birth Year: <span>{selectedKarakter.birth_year}</span>
-              </li>
-              <li>
-                Eye Color: <span>{selectedKarakter.eye_color}</span>
-              </li>
-              <li>
-                Hair Color: <span>{selectedKarakter.hair_color}</span>
-              </li>
-              <li>
-                Skin Color: <span>{selectedKarakter.skin_color}</span>
-              </li>
-            </ul>
-            <h3>Filmler</h3>
-            <ul>
-              {selectedKarakter.films.map((filmUrl) => {
-                const film = filmsData.find((f) => f.url === filmUrl);
-                return (
-                  <li key={filmUrl}>
-                    <h4>{film.title}</h4>
-                    <p>Episode: {film.episode_id}</p>
-                    <p>Director: {film.director}</p>
-                    <p>Producer: {film.producer}</p>
-                    <p>Release Date: {film.release_date}</p>
-                  </li>
-                );
-              })}
-            </ul>
-          </>
-        )}
       </div>
     </div>
   );

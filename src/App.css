@@ -23,25 +23,52 @@ h1 {
   font-family: "Coda Caption ExtraBold", "Chelsea Market", "Coda Caption",
     "Lexend Tera", "Righteous", "Roboto", "Roboto Mono", sans-serif;
 }
+h2,
+h3,
+h4 {
+  color: white;
+  margin: 0;
+  margin-bottom: 10px;
+  font-family: "Coda Caption ExtraBold", "Chelsea Market", "Coda Caption",
+    "Lexend Tera", "Righteous", "Roboto", "Roboto Mono", sans-serif;
+  text-align: center;
+}
 
 .karakter-listesi {
   margin-top: 30px;
 }
 
-.karakter-detay {
-  margin-top: 50px;
+.karakter-listesi h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-ul {
+.karakter-listesi ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-li {
+.karakter-listesi li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   cursor: pointer;
   padding: 10px;
   border: 1px solid white;
+  color: white;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.karakter-listesi li button {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid white;
+  background-color: #17131b;
   color: white;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -52,31 +79,39 @@ li {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-li:hover {
-  background-color: rgb(37, 31, 66);
+.karakter-listesi li button:hover {
+  background-color: #361e50;
 }
 
-h2,
-h3,
-h4 {
-  color: white;
+.karakter-listesi li div {
+  margin-top: 20px;
+}
+
+.karakter-listesi li div ul {
+  list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.karakter-listesi li div ul li {
   margin-bottom: 10px;
-  font-family: "Coda Caption ExtraBold", "Chelsea Market", "Coda Caption",
-    "Lexend Tera", "Righteous", "Roboto", "Roboto Mono", sans-serif;
 }
 
-h2 {
-  text-align: center;
+.karakter-listesi li div ul li span {
+  font-weight: bold;
 }
 
-h3 {
-  margin-top: 30px;
-  text-align: center;
+.karakter-listesi li div h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
-p {
+.karakter-listesi li div h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.karakter-listesi li div p {
   margin: 0;
   margin-bottom: 5px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }

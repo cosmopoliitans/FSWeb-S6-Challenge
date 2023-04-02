@@ -17,9 +17,9 @@ function Karakter() {
     fetchData();
   }, []);
 
-  const selectKarakter = async (url) => {
-    const result = await axios.get(url);
-    setSelectedKarakter(result.data);
+  const handleClick = (karakter) => {
+    // Eğer seçili karakter zaten açıksa, kapatmak için null olarak ayarlayalım.
+    setSelectedKarakter(selectedKarakter === karakter ? null : karakter);
   };
 
   return (
@@ -29,7 +29,7 @@ function Karakter() {
         <h2>Karakterler</h2>
         <ul>
           {karakterData.map((karakter) => (
-            <li key={karakter.url} onClick={() => selectKarakter(karakter.url)}>
+            <li key={karakter.url} onClick={() => handleClick(karakter)}>
               {karakter.name}
             </li>
           ))}
